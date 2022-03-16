@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import RadioBox from "./children/RadioBox";
 import FormatNews from "./children/FormatNews";
-import strings from "../data/03";
+import shuffleArray from "../utils/shuffle";
+import strings from "../data";
 
 function NewsList() {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    const list = FormatNews(strings);
+    const list = FormatNews(shuffleArray(strings));
     setNewsList(list);
   }, []);
 

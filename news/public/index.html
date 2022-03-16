@@ -10,10 +10,14 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <title>时政热点-2022.03.15</title>
+    <title></title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      const time = new Date();
+      document.title = `时政 ${time.getFullYear()}.${time.getMonth() + 1}.${time.getDate()}`;
+    </script>
   </body>
 </html>

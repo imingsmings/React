@@ -28,18 +28,21 @@ function RadioBox(props) {
         <Radio.Group onChange={_onChange} value={value} key={item.id}>
           <p className={"title"}>
             {item.id}、{item.title.match(/^.*\(/)[0].replace("(", "")}
+            {item.id}、
             <span className={insertValue ? "active" : ""}>
               ( {insertValue} )
             </span>
             {item.title.match(/\).*/)[0].replace(")", "")}
           </p>
-          {item.options.map((opt) => {
-            return (
-              <Radio value={opt.tag} key={`${opt.tag}${opt.desc}`}>
-                {opt.tag}.{opt.desc}
-              </Radio>
-            );
-          })}
+          <div className="selections">
+            {item.options.map((opt) => {
+              return (
+                <Radio value={opt.tag} key={`${opt.tag}${opt.desc}`}>
+                  {opt.tag}.{opt.desc}
+                </Radio>
+              );
+            })}
+          </div>
         </Radio.Group>
       )}
     </div>

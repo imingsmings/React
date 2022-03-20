@@ -15,7 +15,9 @@ function NewsList(props) {
   return (
     <>
       {list.length !== 0 &&
-        list.map((item) => <RadioBox item={item} key={item.id} />)}
+        list.map((item, index) => (
+          <RadioBox item={item} key={item.id} index={index + 1} />
+        ))}
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Radio, message } from "antd";
+import NewIcon from "../../assets/images/new.svg";
 import "./style.css";
 
 function RadioBox(props) {
@@ -14,7 +15,7 @@ function RadioBox(props) {
       message.success("回答正确", 0.5).then();
       item.options.forEach((opt) => {
         if (opt.tag === item.rightOpt) {
-          setInsertValue(opt.desc);
+          setInsertValue(opt.tag);
         }
       });
     } else {
@@ -27,8 +28,8 @@ function RadioBox(props) {
       {item && (
         <Radio.Group onChange={_onChange} value={value} key={item.id}>
           <p className={"title"}>
-            {item.id}、{item.title.match(/^.*\(/)[0].replace("(", "")}
-            {item.id}、
+            {props.index <= 10 && <img src={NewIcon} className="icon" alt="" />}
+            {item.id}. {item.title.match(/^.*\(/)[0].replace("(", "")}
             <span className={insertValue ? "active" : ""}>
               ( {insertValue} )
             </span>

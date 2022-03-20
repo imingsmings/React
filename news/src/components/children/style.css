@@ -6,11 +6,19 @@
 
 .radiobox .title {
   font-size: 14px;
+  position: relative;
 }
 
 .radiobox .title .active {
   color: #fb685f;
   font-weight: bold;
+}
+
+.radiobox .title .icon {
+  width: 20px;
+  position: absolute;
+  left: 6px;
+  top: -10px;
 }
 
 .radiobox .selections {

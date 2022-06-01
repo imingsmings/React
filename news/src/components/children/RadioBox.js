@@ -28,7 +28,7 @@ function RadioBox(props) {
       {item && (
         <Radio.Group onChange={_onChange} value={value} key={item.id}>
           <p className={"title"}>
-            {props.index <= 10 && <img src={NewIcon} className="icon" alt="" />}
+            {props.index <= 20 && <img src={NewIcon} className="icon" alt="" />}
             {item.id}. {item.title.match(/^.*\(/)[0].replace("(", "")}
             <span className={insertValue ? "active" : ""}>
               ( {insertValue} )

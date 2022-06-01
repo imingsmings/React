@@ -9,6 +9,7 @@ function NewsList(props) {
   useEffect(() => {
     // const renderList = shuffleArray(FormatNews(props.newsList));
     const renderList = FormatNews(props.newsList);
+    console.log(JSON.stringify(renderList));
     setList(renderList);
   }, []);
 

@@ -1,9 +1,10 @@
+import { Suspense } from 'react';
 import { Tabs } from 'antd';
-import { generateTabs } from '../../utils';
+import { generateTabs } from './utils';
 const { TabPane } = Tabs;
 
 const TabPanes = (props) => {
-  const { children } = props;
+  const { children, isDynamic, defaultTab } = props;
   const tabs = [];
 
   children && !children.length && tabs.push(generateTabs(children));
@@ -20,11 +21,17 @@ const TabPanes = (props) => {
 
   return (
     tabs.length !== 0 && (
-      <Tabs defaultActiveKey={tabs[0].key} onChange={_onChange}>
+      <Tabs defaultActiveKey={`${defaultTab}`} onChange={_onChange}>
         {tabs.map((item) => {
           return (
             <TabPane tab={item.title} key={item.key}>
-              {item.content}
+              {isDynamic ? (
+                <Suspense fallback={<div>{`Loading${item.title}中...`}</div>}>
+                  {item.content}
+                </Suspense>
+              ) : (
+                item.content
+              )}
             </TabPane>
           );
         })}

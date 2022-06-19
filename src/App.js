@@ -1,12 +1,12 @@
 import './App.css';
-// import LineChart from './components/LineChart';
-import Table from './components/Table';
+// import Table from './components/Table';
+import State from './hooks/useState';
 
 const App = () => {
   return (
     <div>
-      {/* <LineChart></LineChart> */}
-      <Table></Table>
+      {/* <Table></Table> */}
+      <State></State>
     </div>
   );
 };

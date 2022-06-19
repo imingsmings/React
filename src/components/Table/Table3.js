@@ -1,4 +1,4 @@
-const Table3 = () => {
+const Table3 = (props) => {
   return <div>Table3</div>;
 };
 

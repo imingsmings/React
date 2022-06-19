@@ -4,16 +4,9 @@ import { generateTabs } from './utils';
 const { TabPane } = Tabs;
 
 const TabPanes = (props) => {
-  const { children, isDynamic, defaultTab } = props;
-  const tabs = [];
+  const { children, defaultTab = 1 } = props;
 
-  children && !children.length && tabs.push(generateTabs(children));
-
-  if (children && children.length) {
-    for (const item of children) {
-      tabs.push(generateTabs(item));
-    }
-  }
+  const tabs = generateTabs(children);
 
   const _onChange = (key) => {
     console.log(key);
@@ -25,13 +18,9 @@ const TabPanes = (props) => {
         {tabs.map((item) => {
           return (
             <TabPane tab={item.title} key={item.key}>
-              {isDynamic ? (
-                <Suspense fallback={<div>{`Loading${item.title}中...`}</div>}>
-                  {item.content}
-                </Suspense>
-              ) : (
-                item.content
-              )}
+              <Suspense fallback={<div>Loading...</div>}>
+                {item.content}
+              </Suspense>
             </TabPane>
           );
         })}
